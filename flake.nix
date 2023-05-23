@@ -5,8 +5,8 @@
 
   outputs = inputs @ { self, nixpkgs, flake-parts, ... }:
     let
-      user = "ruixi";
-      domain = "ruixi2fp.top";
+      user = "kourosh";
+      #domain = "ruixi2fp.top";
       selfPkgs = import ./pkgs;
     in
     flake-parts.lib.mkFlake { inherit inputs; } {

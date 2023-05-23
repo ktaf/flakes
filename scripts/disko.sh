@@ -62,9 +62,9 @@ mkdir -p /mnt/nix/persist/etc/nixos
 mount -o bind /mnt/nix/persist/etc/nixos /mnt/etc/nixos
 nixos-generate-config --no-filesystems --root /mnt
 cd /mnt/etc/nixos
-cp hardware-configuration.nix "$FLAKE_ROOT"/hosts/laptop/hardware-configuration.nix && cp hardware-configuration.nix "$FLAKE_ROOT"/hosts/laptop_minimal/hardware-configuration.nix
+cp hardware-configuration.nix "$FLAKE_ROOT"/hosts/laptop/hardware-configuration.nix
 # To truncate characters, simplify the following sed command
 layout=.${partition_layout#$FLAKE_ROOT/hosts/laptop}
-sed -i "/imports\ =/cimports\ = [(import\ $layout\ {})]++" "$FLAKE_ROOT"/hosts/{laptop,laptop_minimal}/hardware-configuration.nix
+sed -i "/imports\ =/cimports\ = [(import\ $layout\ {})]++" "$FLAKE_ROOT"/hosts/laptop/hardware-configuration.nix
 cp -r "$FLAKE_ROOT" /mnt/etc/nixos
 lsblk

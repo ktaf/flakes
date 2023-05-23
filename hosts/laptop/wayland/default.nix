@@ -8,18 +8,17 @@
       ../hardware-configuration.nix
       ../../../modules/fonts
     ] ++ [
-      # ../../../modules/desktop/sway
       ../../../modules/desktop/hyprland
     ];
 
   sops.defaultSopsFile = ../../../secrets/secrets.yaml;
   users.mutableUsers = false;
   users.users.root = {
-    initialHashedPassword = "$6$4lwj3AGq8M9CQE2.$q8cNPghWHTl/dfE0dMPm2vsh0cMpY2gWxw91/Uadi8jShbvUHJJu3Jg0CvSpqrlEB7a3kvWDf/p2CI3mSqP1c/";
+    initialHashedPassword = "$6$.2U3cBYgHNF3xqTv$p4RFLbkWhCIXjfVmXOsl7Ot1YmgOI79k3TLFobMSEulx8OKdIZLbhAIDkK1KW6adVWNbMy/aBKsKfPz9Jbk4z/";
   };
   programs.fish.enable = true;
   users.users.${user} = {
-    initialHashedPassword = "$6$4lwj3AGq8M9CQE2.$q8cNPghWHTl/dfE0dMPm2vsh0cMpY2gWxw91/Uadi8jShbvUHJJu3Jg0CvSpqrlEB7a3kvWDf/p2CI3mSqP1c/";
+    initialHashedPassword = "$6$.2U3cBYgHNF3xqTv$p4RFLbkWhCIXjfVmXOsl7Ot1YmgOI79k3TLFobMSEulx8OKdIZLbhAIDkK1KW6adVWNbMy/aBKsKfPz9Jbk4z/";
     shell = pkgs.fish;
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "libvirtd" "video" "audio" ];

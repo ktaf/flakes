@@ -15,7 +15,7 @@ while true; do
     case $device in
         1)
             set_user_passwd
-            sed -i "/initialHashedPassword/c\ \ \ \ initialHashedPassword\ =\ \"$passwd_hash\";" ./hosts/laptop/{wayland,x11}/default.nix
+            sed -i "/initialHashedPassword/c\ \ \ \ initialHashedPassword\ =\ \"$passwd_hash\";" ./hosts/laptop/wayland/default.nix
             nixos-install --no-root-passwd --flake .#laptop
             break ;;
         2)
