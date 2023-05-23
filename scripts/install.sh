@@ -1,6 +1,6 @@
 set -e
 
-cd /mnt/etc/nixos/Flakes
+cd /etc/nixos/Flakes
 
 function set_user_passwd {
     echo $'\e[1;32mset your user login password\e[0m'

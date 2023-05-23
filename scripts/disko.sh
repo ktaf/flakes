@@ -57,14 +57,14 @@ done
 
 nix --extra-experimental-features nix-command --extra-experimental-features flakes run github:nix-community/disko -- --mode zap_create_mount "$partition_layout"
 
-mkdir -p /mnt/etc/nixos
-mkdir -p /mnt/nix/persist/etc/nixos
-mount -o bind /mnt/nix/persist/etc/nixos /mnt/etc/nixos
-nixos-generate-config --no-filesystems --root /mnt
-cd /mnt/etc/nixos
+# mkdir -p /mnt/etc/nixos
+# mkdir -p /mnt/persist/etc/nixos
+# mount -o bind /mnt/persist/etc/nixos /mnt/etc/nixos
+nixos-generate-config --no-filesystems --root / # nixos-generate-config --no-filesystems --root /mnt
+cd /etc/nixos # cd /mnt/etc/nixos
 cp hardware-configuration.nix "$FLAKE_ROOT"/hosts/laptop/hardware-configuration.nix
 # To truncate characters, simplify the following sed command
 layout=.${partition_layout#$FLAKE_ROOT/hosts/laptop}
 sed -i "/imports\ =/cimports\ = [(import\ $layout\ {})]++" "$FLAKE_ROOT"/hosts/laptop/hardware-configuration.nix
-cp -r "$FLAKE_ROOT" /mnt/etc/nixos
+cp -r "$FLAKE_ROOT" /etc/nixos
 lsblk
