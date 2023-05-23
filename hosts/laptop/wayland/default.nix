@@ -71,7 +71,8 @@
   };
 
   environment = {
-    persistence."/" = {
+    persistence."/persistent" = {
+      hideMounts = true;
       directories = [
         "/etc/nixos" # bind mounted from /nix/persist/etc/nixos to /etc/nixos
         "/etc/NetworkManager/system-connections"
